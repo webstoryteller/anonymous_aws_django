@@ -12,6 +12,7 @@
 ...작업할 때마다 루틴으로 확인해야 함.
 <<요약>>
 git pull origin master
+(작업 진행 저장)
 git add .
 git commit -m "메시지"
 git push -u origin master
