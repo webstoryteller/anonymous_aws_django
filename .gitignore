@@ -1,0 +1,12 @@
+.idea/*
+*.pyc
+.vscode/*
+venv/*
+.DS_Store
+db.sqlite3
+env.json
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

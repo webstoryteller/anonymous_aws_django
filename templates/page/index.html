@@ -1,0 +1,59 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="row">
+            <div class="col">
+                <form method="get">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="search_text" value="{{ search_text }}" placeholder="검색어 입력">
+                        <button type="submit" class="btn btn-outline-secondary">
+                            제목 검색
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {% for post in post_set %}
+        <div class="col-6 p-2">
+            <div class="card">
+                <a class="text-decoration-none" style="color: black;" href=" {% url 'post_detail' post.id %}">
+                <div class="card-body">
+                    <h5>{{ post.title }}</h5>
+                    <p>{{ post.content }}</p>
+                    <p>{{ post.user.nickname }} <small>{{ post.reg_date|date:"Y-m-d" }}</small></p>
+                    <p><span class="material-symbols-outlined" style="font-size: 17px;">chat_bubble</span>
+                        {{ post.comment_set.all.count }}</p>
+                </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-4 text-start">
+            {% if post_set.has_previous %}
+            <a class="text-decoration-none fs-5 "
+            style="font-weight: bold;color:black;"
+            href="{% url 'board' %}?page={{ post_set.previous_page_number }}&search_text={{ search_text }}"
+            >앞 글</a>
+            {% endif %}
+        </div>
+        <div class="col-4 text-center">
+            {{ post_set.number }} / {{ post_set.paginator.num_pages }}
+        </div>
+        <div class="col-4 text-end">
+            {% if post_set.has_next %}
+            <a class="text-decoration-none fs-5 "
+            style="font-weight: bold;color:black;" 
+            href="{% url 'board' %}?page={{ post_set.next_page_number }}&search_text={{ search_text }}" 
+            >다음 글</a>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

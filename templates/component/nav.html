@@ -1,0 +1,27 @@
+<div class="row text-center border-bottom align-items-center" style="width: 100%;margin: 0;">
+    <div class="col">
+        <a class="text-decoration-none fs-1"
+         style="font-weight: bold;color:#999999;" 
+         href="{% url 'board' %}" 
+         >Anonymous</a>
+    </div>
+    <div class="col">
+        {% if request.user.is_authenticated %}
+            <p class="m-0"> {{ request.user.nickname }}</p>
+            <a class="text-decoration-none fs-5"
+            style="font-weight: bold;color:#c60000;" 
+            href="{% url 'post_write' %}"
+            >글쓰기</a>
+            <a class="text-decoration-none fs-5"
+            style="font-weight: bold;color:black;" 
+            href="{% url 'signout' %}"
+            >로그아웃</a>
+        {% else %}
+            <a class="text-decoration-none fs-5"
+            style="font-weight: bold;color:black;"
+            href="{% url 'signin' %}" 
+            >로그인</a>
+        {% endif %}
+        
+    </div>
+</div>

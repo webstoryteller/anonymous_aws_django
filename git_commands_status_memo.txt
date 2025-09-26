@@ -1,0 +1,25 @@
+... Twowix lecture commands order
+(1) git init
+(2) git add .
+(3) git commit -m "first commit"
+(4) git add newfile.py
+(5) git commit -m "second commit"
+(6) git remote add origin https://github.com/webstoryteller/(name of repository).git
+(7) git push -u origin master
+
+(8) 다른 PC에서 불러오기 : git clone git clone https://github.com/webstoryteller/(name of repository).git
+
+
+…or create a new repository on the command line
+echo "# (name of repository)>" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/webstoryteller/(name of repository).git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/webstoryteller/(name of repository).git
+git branch -M main
+git push -u origin main
