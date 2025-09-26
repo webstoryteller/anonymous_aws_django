@@ -109,9 +109,12 @@ Databases 오른쪽 마우스  - Edit Connection (단축키 F4) - 팝업창에�
 6) database user 테이블 필드 지정할 때 대소문자 구분하므로 주의할 것. Nickname은 nickname과 다름
 
 
+
 7) 장고 django default storage 를 AWS S3로 변경
 
+
 settings.py에 다음과 같이 입력할 것. 장고 특정 버전에서 DEFAULT_FILE_STORAGE 설정은 안 됨.
+
 
 # DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
