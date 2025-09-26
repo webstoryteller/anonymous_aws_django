@@ -123,12 +123,19 @@ settings.py에 다음과 같이 입력할 것. 장고 특정 버전에서 DEFAUL
 
 
 STORAGES = {
+
     "default": {    
-        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage", # Amazon S3 백엔드 사용        
+    
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage", # Amazon S3 백엔드 사용       
+        
     },    
+    
     "staticfiles": {    
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",        
+    
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",  
+        
     },    
+    
 }
 
 
