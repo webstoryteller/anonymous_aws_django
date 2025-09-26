@@ -26,6 +26,32 @@
 
   django는 AWS ssh로 접속해 설치 과정에서 최신 버전을 4.2.24까지만 표시한 것을 보았음. django 5.0 이상 버전 썼다가 배포 에러가 나서 4.2.24로 다시 설치하고 코딩하여 배포했더니 성공함.
 
+
+(2) eb 명령어를 사용하여 배포하기 전 .ebextensions 폴더 구성시 유의 사항
+
+00_anonymous.config 파일 코딩
+
+
+packages지정할 때 dnf 명령어를 써야 함.
+(버전 변경으로 yum 을 쓰면 안 된다고 함)
+
+아래 구문 참조
+
+option_settings:
+    aws:elasticbeanstalk:container:python:
+        WSGIPath: anonymous.wsgi:application
+        NumProcesses: 2
+        NumThreads: 15
+
+packages:
+    dnf:
+        postgresql-devel: []
+
+container_commands:
+    00_wsgipass:
+        command: 'echo "WSGIPassAuthorization On" >> ../wsgi.conf'
+
+
 ☆★☆ 오류 error 해결 방법
 1) 가상 venv 설치 할 때 에러 메시지 Activate.ps1 is published by CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US and is not trusted on your system. Only run scripts from trusted publishers.
  >>> To fix the "script is not trusted" error for activate.ps1, you must either temporarily change your PowerShell execution policy to RemoteSigned or Unrestricted for the current session, import the certificate from the Python Software Foundation into your Trusted Publishers store, or use cmd.exe instead of PowerShell to run the activation script. 
