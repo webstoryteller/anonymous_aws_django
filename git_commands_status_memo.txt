@@ -9,6 +9,28 @@
 
 (8) 다른 PC에서 불러오기 : git clone git clone https://github.com/webstoryteller/(name of repository).git
 
+...작업할 때마다 루틴으로 확인해야 함.
+<<요약>>
+git pull origin master
+git add .
+git commit -m "메시지"
+git push -u origin master
+
+(1) git pull origin master (다른 pc나 github 웹에서 작업하여 github 저장소 내용이 바뀌었을 경우)
+참조:
+git fetch: 원격 저장소의 변경 사항을 가져오기만 하고, 자동으로 병합하지는 않습니다. 
+git pull: 원격 저장소에서 변경 사항을 가져오면서 동시에 현재 로컬 브랜치와 자동으로 병합합니다. 
+
+예시:
+명령 (venv) PS C:\...\ANONYMOUS> git pull origin master
+
+결과 From https://github.com/webstoryteller/anonymous_aws_django
+     * branch            master     -> FETCH_HEAD
+    Already up to date.
+
+(2) git add .
+(3) git commit -m "메시지"
+(4) git push -u origin master
 
 …or create a new repository on the command line
 echo "# (name of repository)>" >> README.md
