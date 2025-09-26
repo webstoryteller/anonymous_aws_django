@@ -113,26 +113,22 @@ Databases 오른쪽 마우스  - Edit Connection (단축키 F4) - 팝업창에�
 7) 장고 django default storage 를 AWS S3로 변경
 
 
-settings.py에 다음과 같이 입력할 것. 장고 특정 버전에서 DEFAULT_FILE_STORAGE 설정은 안 됨.
+settings.py에 다음과 같이 입력할 것. 장고 특정 버전에서 DEFAULT_FILE_STORAGE 설정은 안 됨. 아래 명령어는 주석처리 또는 삭제할 것
 
 
-# DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+주석처리 또는 삭제해야 함: # DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+
+아래 스크립트 명령어 구문으로 쓸 것
 
 
 STORAGES = {
-
-    "default": {
-    
-        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage", # Amazon S3 백엔드 사용
-        
-    },
-    
-    "staticfiles": {
-    
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-        
-    },
-    
+    "default": {    
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage", # Amazon S3 백엔드 사용        
+    },    
+    "staticfiles": {    
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",        
+    },    
 }
 
 
