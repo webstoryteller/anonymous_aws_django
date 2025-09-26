@@ -41,19 +41,34 @@ packages지정할 때 dnf 명령어를 써야 함.
 
 아래 구문 참조
 
+ -----------------------------
+
 option_settings:
+
     aws:elasticbeanstalk:container:python:
+    
         WSGIPath: anonymous.wsgi:application
+        
         NumProcesses: 2
+        
         NumThreads: 15
+        
 
 packages:
+
     dnf:
+    
         postgresql-devel: []
+        
 
 container_commands:
+
     00_wsgipass:
+    
         command: 'echo "WSGIPassAuthorization On" >> ../wsgi.conf'
+        
+
+ -----------------------------
 
 
 ☆★☆ 오류 error 해결 방법
